@@ -1,216 +1,171 @@
-<!-- ========================================================= -->
-<!--                 🧠 NEUROQUIZ README                        -->
-<!-- ========================================================= -->
-
-<p align="center">
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&text=🧠%20NeuroQuiz&fontAlign=50&fontAlignY=40&fontSize=60&desc=AI-Powered%20Quiz%20Application&descAlign=50&descAlignY=60&animation=fadeIn"/>
-</p>
-
-<p align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=28&duration=3500&pause=1000&color=36BCF7&center=true&vCenter=true&width=900&lines=AI-Powered+Quiz+Platform;Built+using+Flask+%2B+Python;Powered+by+LLM+API;Secure+Authentication;Responsive+Modern+UI;Track+Your+Learning+Journey"/>
-
-</p>
-
----
-
-<p align="center">
-
-![](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
-![](https://img.shields.io/badge/Flask-Web_App-000000?style=for-the-badge&logo=flask)
-
-![](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite)
-
-![](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
-
-![](https://img.shields.io/badge/LLM-AI-blueviolet?style=for-the-badge)
-
-![](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
-
-</p>
-
----
-
-<p align="center">
-
-![](https://komarev.com/ghpvc/?username=YOUR_GITHUB_USERNAME&style=for-the-badge&color=blue)
-
-![](https://img.shields.io/github/stars/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
-
-![](https://img.shields.io/github/forks/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
-
-![](https://img.shields.io/github/issues/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
-
-![](https://img.shields.io/github/license/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
-
-</p>
-
----
 
 # 🧠 NeuroQuiz
 
-> **NeuroQuiz** is a modern AI-powered quiz application that generates intelligent quizzes using Large Language Models.
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=240&color=gradient&text=NeuroQuiz&fontSize=55&animation=fadeIn&fontAlignY=38&desc=AI-Powered%20Quiz%20Application"/>
+</p>
 
-It allows users to
+<p align="center">
+<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=24&pause=1000&color=8A63F5&center=true&vCenter=true&width=750&lines=AI-Powered+Quiz+Platform;Built+with+Flask+%2B+Python;Powered+by+Groq+LLM;Responsive+Modern+UI;Practice+Any+Topic"/>
+</p>
 
-- 🔐 Register securely
-- 🤖 Generate AI-powered quizzes
-- 🎯 Choose any topic
-- 📈 Track learning history
-- 🧠 Receive instant feedback
-- 📊 Analyze performance
+<p align="center">
 
----
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-black?style=for-the-badge&logo=flask)
+![SQLite](https://img.shields.io/badge/SQLite-Database-blue?style=for-the-badge&logo=sqlite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss)
+![Groq](https://img.shields.io/badge/Groq-LLM-purple?style=for-the-badge)
+![MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-# ✨ Why NeuroQuiz?
-
-Traditional quiz applications rely on fixed question banks.
-
-NeuroQuiz removes that limitation.
-
-Every quiz is generated dynamically using AI, making learning fresh, interactive, and personalized.
+</p>
 
 ---
 
-# 🚀 Features
+## 📖 Overview
 
-### 🔐 Authentication
-
-- Secure Login
-- Secure Registration
-- Password Hashing
-- Session Management
+NeuroQuiz is an AI-powered quiz application that dynamically generates quizzes using a Large Language Model. Users can securely log in, choose a topic and difficulty, answer AI-generated questions, receive instant feedback, and track quiz history.
 
 ---
 
-### 🤖 AI Quiz Generation
+## ✨ Features
 
-- Dynamic Questions
-- Multiple Topics
-- Difficulty Selection
-- Unlimited Quiz Generation
-
----
-
-### 🧠 Smart Evaluation
-
-- Instant Result
-- Correct Answers
-- Score Calculation
-- Performance Summary
+- 🔐 Secure Authentication
+- 🤖 AI Question Generation
+- 🎯 Multiple Difficulty Levels
+- ⚡ Instant Scoring
+- 📊 Dashboard & Quiz History
+- 🏆 Leaderboard
+- 📱 Responsive UI
+- 🌙 Glassmorphism Design
 
 ---
 
-### 📊 Quiz Dashboard
+## 🛠 Tech Stack
 
-- Previous Attempts
-- Quiz Scores
-- Date & Time
-- Learning History
-
----
-
-### 🎨 Beautiful UI
-
-- Tailwind CSS
-- Responsive Design
-- Modern Cards
-- Glassmorphism Style
-- Smooth Animations
+| Layer | Technology |
+|-------|------------|
+| Backend | Flask |
+| Frontend | HTML, CSS, JavaScript |
+| Styling | Tailwind CSS |
+| Database | SQLite |
+| AI | Groq API |
+| Deployment | Render |
 
 ---
 
-# 🎯 Key Highlights
+## 📂 Project Structure
 
-✅ AI Powered
-
-✅ Fast Performance
-
-✅ Secure Authentication
-
-✅ Mobile Responsive
-
-✅ SQLite Database
-
-✅ Flask Backend
-
-✅ Easy Deployment
-
-✅ Clean Code Architecture
-
----
-
-# 🌟 Preview
-
-```
-
-        +-----------------------+
-
-        |      NeuroQuiz        |
-
-        +-----------------------+
-
-                 │
-
-                 ▼
-
-      User Authentication
-
-                 │
-
-                 ▼
-
-        Choose Topic & Level
-
-                 │
-
-                 ▼
-
-      AI Generates Questions
-
-                 │
-
-                 ▼
-
-      User Attempts Quiz
-
-                 │
-
-                 ▼
-
-      Instant Evaluation
-
-                 │
-
-                 ▼
-
-        Score + History
-
+```text
+NeuroQuiz/
+├── app.py
+├── requirements.txt
+├── static/
+├── templates/
+├── screenshots/
+├── database/
+└── README.md
 ```
 
 ---
 
-# 🎬 Demo
+## 🚀 Installation
 
-> 🚀 Live Demo
+```bash
+git clone https://github.com/YOUR_USERNAME/NeuroQuiz.git
+cd NeuroQuiz
 
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux/macOS
+source venv/bin/activate
+
+pip install -r requirements.txt
 ```
-https://your-demo-link.onrender.com
+
+Create `.env`
+
+```env
+GROQ_API_KEY=your_api_key
+```
+
+Run
+
+```bash
+python app.py
 ```
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
-Replace these with your own screenshots.
+Replace these with your screenshots.
 
-| Home | Login |
-|------|-------|
-| Add Screenshot | Add Screenshot |
-
-| Quiz | Results |
-|------|---------|
-| Add Screenshot | Add Screenshot |
+```md
+screenshots/login.png
+screenshots/dashboard.png
+screenshots/select-quiz.png
+screenshots/quiz.png
+screenshots/result.png
+```
 
 ---
+
+## 🎥 Demo GIF
+
+```md
+screenshots/demo.gif
+```
+
+---
+
+## 📊 GitHub Stats
+
+Replace `YOUR_USERNAME`.
+
+```md
+https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight
+https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=tokyonight
+https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight
+```
+
+---
+
+## 🐍 Snake Animation
+
+Create a GitHub Action and use:
+
+```md
+https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/github-contribution-grid-snake.svg
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork
+2. Create branch
+3. Commit
+4. Push
+5. Open Pull Request
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐.
+
+---
+
+## 📜 License
+
+MIT License.
+
+---
+
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=gradient&section=footer"/>
+</p>
