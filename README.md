@@ -1,143 +1,216 @@
+<!-- ========================================================= -->
+<!--                 🧠 NEUROQUIZ README                        -->
+<!-- ========================================================= -->
+
+<p align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&text=🧠%20NeuroQuiz&fontAlign=50&fontAlignY=40&fontSize=60&desc=AI-Powered%20Quiz%20Application&descAlign=50&descAlignY=60&animation=fadeIn"/>
+</p>
+
+<p align="center">
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=28&duration=3500&pause=1000&color=36BCF7&center=true&vCenter=true&width=900&lines=AI-Powered+Quiz+Platform;Built+using+Flask+%2B+Python;Powered+by+LLM+API;Secure+Authentication;Responsive+Modern+UI;Track+Your+Learning+Journey"/>
+
+</p>
+
+---
+
+<p align="center">
+
+![](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+![](https://img.shields.io/badge/Flask-Web_App-000000?style=for-the-badge&logo=flask)
+
+![](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite)
+
+![](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
+![](https://img.shields.io/badge/LLM-AI-blueviolet?style=for-the-badge)
+
+![](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+
+</p>
+
+---
+
+<p align="center">
+
+![](https://komarev.com/ghpvc/?username=YOUR_GITHUB_USERNAME&style=for-the-badge&color=blue)
+
+![](https://img.shields.io/github/stars/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
+
+![](https://img.shields.io/github/forks/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
+
+![](https://img.shields.io/github/issues/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
+
+![](https://img.shields.io/github/license/YOUR_GITHUB_USERNAME/NeuroQuiz?style=for-the-badge)
+
+</p>
+
+---
+
 # 🧠 NeuroQuiz
 
-<p align="center">
+> **NeuroQuiz** is a modern AI-powered quiz application that generates intelligent quizzes using Large Language Models.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=8A63F5&center=true&vCenter=true&width=560&lines=AI-Powered+Quiz+Application;Built+with+Flask%2C+SQLite+%26+LLM+APIs;Practice+Any+Topic.+Instant+Feedback.)](https://git.io/typing-svg)
+It allows users to
 
-</p>
-
-<p align="center">
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge)
-![Flask](https://img.shields.io/badge/Flask-Web_App-black?style=for-the-badge)
-![SQLite](https://img.shields.io/badge/SQLite-Database-blue?style=for-the-badge)
-![AI](https://img.shields.io/badge/LLM-Powered-purple?style=for-the-badge)
-![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-</p>
+- 🔐 Register securely
+- 🤖 Generate AI-powered quizzes
+- 🎯 Choose any topic
+- 📈 Track learning history
+- 🧠 Receive instant feedback
+- 📊 Analyze performance
 
 ---
 
-## 📖 Overview
+# ✨ Why NeuroQuiz?
 
-NeuroQuiz is an AI-powered quiz platform that generates intelligent quizzes using Large Language Models. Users can practice any topic, receive instant evaluation, and track their learning progress through a clean dashboard.
+Traditional quiz applications rely on fixed question banks.
 
----
+NeuroQuiz removes that limitation.
 
-## ✨ Features
-
-- 🔐 Secure Authentication
-- 🤖 AI Question Generation
-- 🎯 Multiple Difficulty Levels
-- ⚡ Instant Result Evaluation
-- 📊 Quiz History
-- 📱 Responsive UI
-- 🌙 Modern Interface
+Every quiz is generated dynamically using AI, making learning fresh, interactive, and personalized.
 
 ---
 
-## 🛠 Tech Stack
+# 🚀 Features
 
-| Category | Technologies |
-|----------|--------------|
-| Backend | Flask, Python |
-| Frontend | HTML, CSS, JavaScript |
-| Styling | TailwindCSS |
-| Database | SQLite |
-| AI | LLM API |
-| Deployment | Render |
+### 🔐 Authentication
+
+- Secure Login
+- Secure Registration
+- Password Hashing
+- Session Management
 
 ---
 
-## 📂 Project Structure
+### 🤖 AI Quiz Generation
+
+- Dynamic Questions
+- Multiple Topics
+- Difficulty Selection
+- Unlimited Quiz Generation
+
+---
+
+### 🧠 Smart Evaluation
+
+- Instant Result
+- Correct Answers
+- Score Calculation
+- Performance Summary
+
+---
+
+### 📊 Quiz Dashboard
+
+- Previous Attempts
+- Quiz Scores
+- Date & Time
+- Learning History
+
+---
+
+### 🎨 Beautiful UI
+
+- Tailwind CSS
+- Responsive Design
+- Modern Cards
+- Glassmorphism Style
+- Smooth Animations
+
+---
+
+# 🎯 Key Highlights
+
+✅ AI Powered
+
+✅ Fast Performance
+
+✅ Secure Authentication
+
+✅ Mobile Responsive
+
+✅ SQLite Database
+
+✅ Flask Backend
+
+✅ Easy Deployment
+
+✅ Clean Code Architecture
+
+---
+
+# 🌟 Preview
 
 ```
-NeuroQuiz/
-│
-├── static/
-├── templates/
-├── database/
-├── app.py
-├── requirements.txt
-├── .env
-└── README.md
+
+        +-----------------------+
+
+        |      NeuroQuiz        |
+
+        +-----------------------+
+
+                 │
+
+                 ▼
+
+      User Authentication
+
+                 │
+
+                 ▼
+
+        Choose Topic & Level
+
+                 │
+
+                 ▼
+
+      AI Generates Questions
+
+                 │
+
+                 ▼
+
+      User Attempts Quiz
+
+                 │
+
+                 ▼
+
+      Instant Evaluation
+
+                 │
+
+                 ▼
+
+        Score + History
+
 ```
 
 ---
 
-## 🚀 Installation
+# 🎬 Demo
 
-### Clone Repository
-```bash
-git clone https://github.com/yourusername/NeuroQuiz.git
-cd NeuroQuiz
-```
+> 🚀 Live Demo
 
-### Create Virtual Environment
-```bash
-python -m venv venv
 ```
-
-### Activate
-Windows
-```bash
-venv\Scripts\activate
-```
-Linux/macOS
-```bash
-source venv/bin/activate
-```
-
-### Install Packages
-```bash
-pip install -r requirements.txt
-```
-
-### Configure Environment
-Create a `.env` file.
-```env
-LLM_API_KEY=your_api_key_here
-```
-
-### Run
-```bash
-python app.py
-```
-Open
-```
-http://127.0.0.1:5000
+https://your-demo-link.onrender.com
 ```
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
-| Home | Quiz | Results |
-|------|------|----------|
-| ![Home](static/screenshots/home.png) | ![Quiz](static/screenshots/quiz.png) | ![Results](static/screenshots/results.png) |
+Replace these with your own screenshots.
 
----
+| Home | Login |
+|------|-------|
+| Add Screenshot | Add Screenshot |
 
-## 🔮 Future Improvements
-
-- Voice-based quizzes
-- AI explanations
-- Multiplayer mode
-- Leaderboards
-- PDF certificates
+| Quiz | Results |
+|------|---------|
+| Add Screenshot | Add Screenshot |
 
 ---
-
-## 📜 License
-
-Licensed under the MIT License.
-
----
-
-<div align="center">
-
-### ⭐ If you found this project useful, give it a star!
-
-Made with ❤️ using Flask & AI
-
-</div>
