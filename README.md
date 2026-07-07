@@ -124,12 +124,12 @@ screenshots/demo.gif
 
 ## 📊 GitHub Stats
 
-Replace `YOUR_USERNAME`.
+Replace `https://github.com/umeshkumargadapa`.
 
 ```md
-https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight
-https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=tokyonight
-https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight
+https://github-readme-stats.vercel.app/api?username=https://github.com/umeshkumargadapa&show_icons=true&theme=tokyonight
+https://github-readme-streak-stats.herokuapp.com/?user=https://github.com/umeshkumargadapa&theme=tokyonight
+https://github-readme-stats.vercel.app/api/top-langs/?username=https://github.com/umeshkumargadapa&layout=compact&theme=tokyonight
 ```
 
 ---
@@ -139,7 +139,7 @@ https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&lay
 Create a GitHub Action and use:
 
 ```md
-https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/github-contribution-grid-snake.svg
+https://raw.githubusercontent.com//output/github-contribution-grid-snake.svg
 ```
 
 ---
