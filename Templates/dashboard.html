@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | NeuroQuiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar styling */
+        aside {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            animation: fadeInLeft 0.8s ease-in-out;
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Glowing NeuroQuiz */
+        .glow-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #a5b4fc, #c084fc, #a5b4fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowText 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes glowText {
+            0% {
+                text-shadow: 0 0 0px rgba(128, 124, 244, 0.7),
+                             0 0 0px rgba(178, 136, 219, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 0px rgba(164, 159, 255, 1),
+                             0 0 0px rgb(170, 105, 250);
+            }
+        }
+
+        /* Main content blur effect */
+        main {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px 0 0 20px;
+            margin: 1rem;
+            padding: 2rem;
+            color: #f3f4f6;
+            flex-grow: 1;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card glow hover */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: 0.3s;
+        }
+
+        .glass-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 45px rgba(101, 26, 193, 0.486);
+        }
+
+        /* Floating bubbles */
+        .bubble {
+            position: fixed;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in;
+            z-index: 0;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="w-64 text-white flex flex-col p-6 relative z-10">
+        <h2 class="glow-title text-center mb-8">NeuroQuiz</h2>
+
+        <nav class="flex-1 space-y-4">
+            <a href="/history" class="block px-4 py-2 rounded-lg hover:bg-indigo-500/30">📜 Quiz History</a>
+            <a href="/leaderboard" class="block px-4 py-2 rounded-lg hover:bg-indigo-500/30">🏆 Leaderboard</a>
+        </nav>
+
+        <a href="/logout" class="mt-auto bg-indigo-600 hover:bg-red-700 text-center py-2 rounded-lg font-semibold">
+            Logout
+        </a>
+    </aside>
+
+    <main class="relative z-10">
+        <!-- Welcome -->
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-3xl font-bold text-white drop-shadow-lg">Welcome, {{ username }} 👋</h1>
+            <p class="text-indigo-100 text-sm font-medium">Dashboard</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="glass-card p-6 text-center">
+                <p class="text-white-400">Total Quizzes</p>
+                <h3 class="text-3xl font-bold text-white-300">{{ stats.total_quizzes }}</h3>
+            </div>
+
+            <div class="glass-card p-6 text-center">
+                <p class="text-white-400">Best Score</p>
+                <h3 class="text-3xl font-bold text-green-300">{{ stats.best_score }}</h3>
+            </div>
+
+            <div class="glass-card p-6 text-center">
+                <p class="text-white-400">Average Score</p>
+                <h3 class="text-3xl font-bold text-blue-300">{{ stats.avg_score }}</h3>
+            </div>
+
+            <div class="glass-card p-6 text-center">
+                <p class="text-indigo-200">Last Attempt</p>
+                <h3 class="text-lg font-semibold text-gray-100">{{ stats.last_attempt }}</h3>
+            </div>
+        </div>
+
+        <!-- Action Card -->
+        <div class="flex justify-center mb-10">
+            <a href="/select_quiz" class="glass-card p-5 rounded-xl text-center text-white hover:scale-105 transition w-96 bg-gradient-to-r from-indigo-400 to-purple-600 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-2">🎯 Start Quiz</h3>
+                <p>Challenge yourself with AI-generated quizzes!</p>
+            </a>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="glass-card p-6 rounded-xl shadow-md">
+            <h2 class="text-xl font-bold mb-4 text-white">📊 Recent Activity</h2>
+            {% if recent_activity %}
+                <table class="w-full border-collapse overflow-hidden rounded-lg shadow-sm text-white">
+                    <thead>
+                        <tr class="bg-indigo-600/80 text-white text-left">
+                            <th class="p-3 text-center">#</th>
+                            <th class="p-3 text-center">Topic</th>
+                            <th class="p-3 text-center">Score</th>
+                            <th class="p-3 text-center">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for q in recent_activity %}
+                        <tr class="border-b border-indigo-200/30 hover:bg-white/10 transition">
+                            <td class="p-3 text-center font-semibold">{{ loop.index }}</td>
+                            <td class="p-3 text-center">{{ q.topic }}</td>
+                            <td class="p-3 text-center">
+                                {% set percent = (q.score / q.total_questions) * 100 if q.total_questions > 0 else 0 %}
+                                {% if percent >= 80 %}
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{{ q.score }}/{{ q.total_questions }}</span>
+                                {% elif percent >= 50 %}
+                                    <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">{{ q.score }}/{{ q.total_questions }}</span>
+                                {% else %}
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{{ q.score }}/{{ q.total_questions }}</span>
+                                {% endif %}
+                            </td>
+                            <td class="p-3 text-center text-indigo-100 text-sm">{{ q.taken_at[:10] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-indigo-100 text-center py-4">No recent activity yet 😅 Take your first quiz!</p>
+            {% endif %}
+        </div>
+    </main>
+
+    <script>
+        // Floating bubbles background
+        for (let i = 0; i < 15; i++) {
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+            const size = Math.random() * 80 + 20;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+            document.body.appendChild(bubble);
+        }
+    </script>
+</body>
+</html>

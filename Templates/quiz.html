@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 NeuroQuiz | Quiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+ <style>
+  * {
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease-in-out;
+  }
+
+  body {
+    background: linear-gradient(135deg, #667eea, oklab(50.117999999999995% 0.07889 -0.11384));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .quiz-container {
+    background: linear-gradient(135deg, rgba(204, 137, 235, 0.18), rgba(174, 84, 238, 0.08));
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 25px;
+    padding: 2.5rem 3rem;
+    width: 95%;
+    max-width: 1100px; /* wider */
+    box-shadow: 0 8px 40px rgba(31, 38, 135, 0.35);
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+    z-index: 10;
+  }
+
+  h2 {
+  text-align: center;
+  font-size: 1.8rem; /* ✅ slightly larger */
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ffffff, #d4b4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px; /* ✅ adds gap below heading */
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Progress Bar */
+  .progress-container {
+    width: 90%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .progress-bar {
+    height: 10px;
+    width: 0%;
+    background: linear-gradient(90deg, #9d61eb, #6718ef);
+    transition: width 0.4s ease;
+    border-radius: 5px;
+  }
+
+  .question-counter {
+    text-align: center;
+    font-weight: 600;
+    color: hsl(0, 0%, 100%);
+    margin-bottom: 1rem;
+  }
+
+  .question {
+    display: none;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgb(249, 245, 250);
+    border-radius: 15px;
+    padding: 1.2rem;
+  }
+
+  .question.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .options div {
+    background: rgba(197, 23, 236, 0.18);
+    border: 2.5px solid rgb(230, 230, 230);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .options div:hover {
+    background: rgba(117, 33, 226, 0.3);
+    transform: scale(1.03);
+  }
+
+  .highlight-correct {
+    background: #6bda94 !important;
+    color: white !important;
+  }
+
+  .highlight-wrong {
+    background: #db5a5a !important;
+    color: white !important;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.8rem;
+  }
+
+  button {
+    background: rgba(255, 255, 255, 0.9);
+    color: #4f46e5;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
+  }
+
+  button:hover {
+    background: rgb(151, 94, 205);
+    transform: scale(1.06);
+  }
+
+  button:disabled {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+  }
+
+  /* Floating Bubbles */
+  .bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: rise 10s infinite ease-in;
+    z-index: 0 /* always behind everything */
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- Progress -->
+  <div class="progress-container">
+    <div id="progress-bar" class="progress-bar"></div>
+  </div>
+  <p id="question-counter" class="question-counter">Question 1 of {{ questions|length }}</p>
+
+  <div class="quiz-container">
+    <h2>{{ topic | upper }}</h2>
+
+    <form method="POST" action="/quiz_result" id="quizForm">
+      {% for q in questions %}
+        {% set qIndex = loop.index0 %}
+        <div class="question {% if loop.first %}active{% endif %}" id="question{{ qIndex }}">
+          <p class="mb-3 font-semibold">{{ loop.index }}. {{ q.question }}</p>
+          <div class="options">
+            {% for key, value in q.options.items() %}
+              <div data-option="{{ key }}" data-id="{{ q.id }}" onclick="selectOption({{ qIndex }}, '{{ key }}', '{{ q.correct }}', this)">
+                <input type="radio" name="q{{ qIndex }}" value="{{ key }}"> 
+                <label><strong>{{ key }}.</strong> {{ value }}</label>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+      <input type="hidden" id="scoreInput" name="score">
+      <input type="hidden" name="quiz_id" value="{{ quiz_id }}">
+      <input type="hidden" name="total_questions" value="{{ questions|length }}">
+
+      <div class="btn-container">
+        <button type="button" id="prevBtn" onclick="prevQuestion()">⬅ Previous</button>
+        <button type="button" id="nextBtn" onclick="nextQuestion()">Next ➡</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let currentQuestion = 0;
+    let score = 0;
+    const total = {{ questions|length }};
+    let answered = Array(total).fill(false);
+
+    const questions = document.querySelectorAll(".question");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    function showQuestion(index) {
+      questions.forEach((q, i) => q.classList.toggle("active", i === index));
+      prevBtn.disabled = index === 0;
+      nextBtn.textContent = index === total - 1 ? "Submit ✅" : "Next ➡";
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const progress = ((currentQuestion + 1) / total) * 100;
+      document.getElementById("progress-bar").style.width = `${progress}%`;
+      document.getElementById("question-counter").textContent = `Question ${currentQuestion + 1} of ${total}`;
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < total - 1) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+      } else {
+        submitQuiz();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+      }
+    }
+
+    function selectOption(qIndex, selected, correct, element) {
+      if (answered[qIndex]) return;
+      answered[qIndex] = true;
+
+      const options = element.parentElement.querySelectorAll("div");
+      options.forEach(opt => opt.style.pointerEvents = "none");
+
+      if (selected === correct) {
+        element.classList.add("highlight-correct");
+        score++;
+      } else {
+        element.classList.add("highlight-wrong");
+        options.forEach(opt => {
+          if (opt.dataset.option === correct) opt.classList.add("highlight-correct");
+        });
+      }
+
+      const questionId = element.dataset.id;
+
+      fetch("/save_answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question_id: questionId,
+          user_answer: selected,
+          correct_answer: correct
+        })
+      });
+
+      setTimeout(() => {
+        if (currentQuestion < total - 1) {
+          currentQuestion++;
+          showQuestion(currentQuestion);
+        } else {
+          submitQuiz();
+        }
+      }, 1000);
+    }
+
+    function submitQuiz() {
+      const answeredCount = answered.filter(Boolean).length;
+      if (answeredCount < total) {
+        const confirmSubmit = confirm(
+          `You answered ${answeredCount} out of ${total} questions.\nSubmit anyway?`
+        );
+        if (!confirmSubmit) return;
+      }
+      document.getElementById("scoreInput").value = score;
+      document.getElementById("quizForm").submit();
+    }
+
+    showQuestion(currentQuestion);
+
+    // Floating bubbles
+    for (let i = 0; i < 15; i++) {
+      const bubble = document.createElement("div");
+      bubble.classList.add("bubble");
+      const size = Math.random() * 80 + 20;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+      document.body.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>

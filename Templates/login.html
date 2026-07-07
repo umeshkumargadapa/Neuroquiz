@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | NeuroQuiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      transition: all 0.3s ease-in-out;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✨ Glowing NeuroQuiz Title */
+    .login-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #a5b4fc, #c084fc, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 0 infinite alternate ease-in-out;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 10px rgba(128, 124, 244, 0.7),
+                     0 0 20px rgba(178, 136, 219, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 0px rgba(164, 159, 255, 1),
+                     0 0 0px rgba(185, 126, 255, 1);
+      }
+    }
+
+    .form-label {
+      color: #e0e7ff;
+      font-weight: 500;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      margin-top: 5px;
+    }
+
+    .form-input:focus {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .login-btn {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: white;
+      color: #4f46e5;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .login-btn:hover {
+      background: #e0e7ff;
+      transform: scale(1.05);
+    }
+
+    .register-text {
+      color: #cbd5e1;
+      margin-top: 1rem;
+    }
+
+    .register-link {
+      color: white;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .flash-msg {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Floating bubbles */
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h1 class="login-title">Login</h1>
+    <p class="text-indigo-100 mb-6 text-sm">Login to unlock AI-powered quizzes!</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash-msg {% if category == 'danger' %}text-red-400{% elif category == 'success' %}text-green-400{% else %}text-yellow-400{% endif %}">
+            {{ msg }}
+          </p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <div class="mb-4 text-left">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" required class="form-input">
+      </div>
+
+      <div class="mb-4 text-left">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" required class="form-input">
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <p class="register-text">
+      Don’t have an account?
+      <a href="/register" class="register-link">Register here</a>
+    </p>
+  </div>
+
+  <script>
+    // Floating bubbles background
+    for (let i = 0; i < 15; i++) {
+      const bubble = document.createElement("div");
+      bubble.classList.add("bubble");
+      const size = Math.random() * 80 + 20;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+      document.body.appendChild(bubble);
+    }
+  </script>
+
+</body>
+</html>
