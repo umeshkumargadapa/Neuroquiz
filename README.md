@@ -1,4 +1,3 @@
-
 # 🧠 NeuroQuiz
 
 <p align="center">
@@ -10,14 +9,12 @@
 </p>
 
 <p align="center">
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
-![Flask](https://img.shields.io/badge/Flask-black?style=for-the-badge&logo=flask)
-![SQLite](https://img.shields.io/badge/SQLite-Database-blue?style=for-the-badge&logo=sqlite)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss)
-![Groq](https://img.shields.io/badge/Groq-LLM-purple?style=for-the-badge)
-![MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
+<img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python" />
+<img src="https://img.shields.io/badge/Flask-black?style=for-the-badge&logo=flask" />
+<img src="https://img.shields.io/badge/SQLite-Database-blue?style=for-the-badge&logo=sqlite" />
+<img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss" />
+<img src="https://img.shields.io/badge/Groq-LLM-purple?style=for-the-badge" />
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
 
 ---
@@ -72,28 +69,22 @@ NeuroQuiz/
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/NeuroQuiz.git
+git clone https://github.com/umeshkumargadapa/NeuroQuiz.git
 cd NeuroQuiz
-
 python -m venv venv
-
 # Windows
 venv\Scripts\activate
-
 # Linux/macOS
 source venv/bin/activate
-
 pip install -r requirements.txt
 ```
 
 Create `.env`
-
 ```env
 GROQ_API_KEY=your_api_key
 ```
 
 Run
-
 ```bash
 python app.py
 ```
@@ -102,45 +93,47 @@ python app.py
 
 ## 📸 Screenshots
 
-Replace these with your screenshots.
+> Add PNG files at these paths, then this section renders automatically — no other changes needed.
 
-```md
-screenshots/login.png
-screenshots/dashboard.png
-screenshots/select-quiz.png
-screenshots/quiz.png
-screenshots/result.png
-```
+| Login | Dashboard | Quiz |
+|-------|-----------|------|
+| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) | ![Quiz](screenshots/quiz.png) |
+
+| Select Topic | Result |
+|--------------|--------|
+| ![Select Quiz](screenshots/select-quiz.png) | ![Result](screenshots/result.png) |
 
 ---
 
-## 🎥 Demo GIF
+## 🎥 Demo
 
-```md
-screenshots/demo.gif
-```
+![Demo](screenshots/demo.gif)
 
 ---
 
 ## 📊 GitHub Stats
 
-Replace `https://github.com/umeshkumargadapa`.
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=umeshkumargadapa&show_icons=true&theme=tokyonight" />
+</p>
 
-```md
-https://github-readme-stats.vercel.app/api?username=https://github.com/umeshkumargadapa&show_icons=true&theme=tokyonight
-https://github-readme-streak-stats.herokuapp.com/?user=https://github.com/umeshkumargadapa&theme=tokyonight
-https://github-readme-stats.vercel.app/api/top-langs/?username=https://github.com/umeshkumargadapa&layout=compact&theme=tokyonight
-```
+<p align="center">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=umeshkumargadapa&theme=tokyonight" />
+</p>
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=umeshkumargadapa&layout=compact&theme=tokyonight" />
+</p>
 
 ---
 
-## 🐍 Snake Animation
+## 🐍 Contribution Snake
 
-Create a GitHub Action and use:
+> Requires a separate repo named `umeshkumargadapa/umeshkumargadapa` with the [platane/snk](https://github.com/Platane/snk) GitHub Action set up to generate this SVG on a schedule. It won't render just by pasting the URL below — the Action has to exist and run first.
 
-```md
-https://raw.githubusercontent.com//output/github-contribution-grid-snake.svg
-```
+<p align="center">
+<img src="https://raw.githubusercontent.com/umeshkumargadapa/umeshkumargadapa/output/github-contribution-grid-snake.svg" />
+</p>
 
 ---
 
