@@ -1,6 +1,10 @@
 # 🧠 NeuroQuiz
 
-> AI-Powered Quiz Application built with Flask, SQLite, and LLM APIs.
+<p align="center">
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=8A63F5&center=true&vCenter=true&width=560&lines=AI-Powered+Quiz+Application;Built+with+Flask%2C+SQLite+%26+LLM+APIs;Practice+Any+Topic.+Instant+Feedback.)](https://git.io/typing-svg)
+
+</p>
 
 <p align="center">
 
@@ -64,54 +68,42 @@ NeuroQuiz/
 ## 🚀 Installation
 
 ### Clone Repository
-
 ```bash
 git clone https://github.com/yourusername/NeuroQuiz.git
 cd NeuroQuiz
 ```
 
 ### Create Virtual Environment
-
 ```bash
 python -m venv venv
 ```
 
 ### Activate
-
 Windows
-
 ```bash
 venv\Scripts\activate
 ```
-
 Linux/macOS
-
 ```bash
 source venv/bin/activate
 ```
 
 ### Install Packages
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Configure Environment
-
 Create a `.env` file.
-
 ```env
 LLM_API_KEY=your_api_key_here
 ```
 
 ### Run
-
 ```bash
 python app.py
 ```
-
 Open
-
 ```
 http://127.0.0.1:5000
 ```
@@ -122,7 +114,7 @@ http://127.0.0.1:5000
 
 | Home | Quiz | Results |
 |------|------|----------|
-| Add Image | Add Image | Add Image |
+| ![Home](static/screenshots/home.png) | ![Quiz](static/screenshots/quiz.png) | ![Results](static/screenshots/results.png) |
 
 ---
 
